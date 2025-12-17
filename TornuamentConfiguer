@@ -1,0 +1,53 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(bodyParser.json());
+
+// --- CONFIGURAÇÕES DO TORNEIO (STUMBLE CRAZY) ---
+const tournamentConfig = {
+    appId: "SEU_APP_ID_AQUI",
+    tournamentTitle: "Tornuaments Bd 1v1",
+    targetMap: "level19_block", // Block Dash
+    maxPlayers: 2,
+    region: "sa"
+};
+
+// --- ROTA DE LOGIN (JÁ COM AS SKINS) ---
+app.get('/api/player/login', (req, res) => {
+    const originalNick = req.query.name || "Guest";
+
+    res.json({
+        success: true,
+        User: {
+            Username: originalNick,
+            Country: "BR",
+            Skins: Array.from({ length: 500 }, (_, i) => `skin_${i + 1}`),
+            Gems: 999999,
+            Crowns: 8888
+        },
+        // Injetamos a config do torneio na resposta do servidor
+        TournamentConfig: tournamentConfig, 
+        ServerConfig: {
+            ForceLobby: true,
+            Version: "0.56",
+            Region: "SouthAmerica"
+        }
+    });
+});
+
+// --- NOVA ROTA ESPECÍFICA PARA O TORNEIO ---
+// Se você quiser que o C# consulte as regras separadamente
+app.get('/api/tournament/config', (req, res) => {
+    res.json(tournamentConfig);
+});
+
+app.get('/ping', (req, res) => {
+    res.status(200).send('Stumble Crazy Stable');
+});
+
+app.listen(PORT, () => {
+    console.log(`BACKEND E TORNEIO ATIVOS NA PORTA ${PORT}`);
+});
+
