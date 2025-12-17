@@ -9,21 +9,21 @@ app.use(bodyParser.json());
 const playerSettings = {
     // Escreva o Nick Original em cima
     // E o Nick que vai setar embaixo
-    "PlayerOriginal123": 
-    "NickSetado_CRAZY",
+    "drakx": 
+    "<color=red>drakx<sup><#FDD700>[SB DEV]",
 
-    "SteveGamer": 
-    "REI_DO_PULO",
+    "espanha9 spx": 
+    "<color=pink>Espanha9=gay",
 
-    "User99": 
-    "MOD_MENU_0.56"
+    "bodyxz": 
+    "<color=pink>Body=gay>,
 };
 
 // --- SISTEMA DE BANIMENTO (NICK ORIGINAL) ---
 const bannedPlayers = [
-    "HackerInsuportavel",
-    "ToxicPlayer10",
-    "NickDoBanidoAqui"
+    "",
+    "",
+    ""
 ];
 
 // --- BACKEND LOGIC ---
@@ -37,7 +37,7 @@ app.get('/api/player/login', (req, res) => {
         return res.status(403).json({
             success: false,
             error: "Banned",
-            message: "VOCÊ FOI BANIDO DO STUMBLE CRAZY!"
+            message: "VOCÊ FOI BANIDO DO STUMBLE Blitz!"
         });
     }
 
@@ -69,13 +69,13 @@ app.get('/api/player/login', (req, res) => {
 
 // Rota de Ping para manter conexão estável
 app.get('/ping', (req, res) => {
-    res.status(200).send('Stumble Crazy Stable');
+    res.status(200).send('Stumble Blitz.Stable');
 });
 
 app.listen(PORT, () => {
     console.clear();
     console.log(`=========================================`);
-    console.log(`      SISTEMA STUMBLE CRAZY ATIVO        `);
+    console.log(`      SISTEMA STUMBLE BLITZ ATIVO        `);
     console.log(`   VERSÕES SUPORTADAS: 0.56 ATÉ 0.64    `);
     console.log(`      BACKEND OTIMIZADO (PING LOW)       `);
     console.log(`=========================================`);
