@@ -5,7 +5,7 @@ const PORT = 3000;
 
 app.use(bodyParser.json());
 
-// --- CONFIGURAÇÃO DE JOGADORES (STUMBLE CRAZY) ---
+// --- CONFIGURAÇÃO DE JOGADORES (STUMBLE BLITZ) ---
 const playerSettings = {
     // Escreva o Nick Original em cima
     // E o Nick que vai setar embaixo
